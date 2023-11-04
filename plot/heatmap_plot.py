@@ -23,10 +23,10 @@ def plot_heatmap(path, exp_idx, figsize):
     heat_train = upsample(np.load(path + '{}/'.format(exp_idx) + 'train_MCC.npy'))
     heat_valid = upsample(np.load(path + '{}/'.format(exp_idx) + 'valid_MCC.npy'))
     heat_test = upsample(np.load(path + '{}/'.format(exp_idx) + 'test_MCC.npy'))
-    heat_NACC = upsample(np.load(path + '{}/'.format(exp_idx) + 'NACC_MCC.npy'))
-    heat_AIBL = upsample(np.load(path + '{}/'.format(exp_idx) + 'AIBL_MCC.npy'))
-    heat_FHS = upsample(np.load(path + '{}/'.format(exp_idx) + 'FHS_MCC.npy'))
-    MRI = np.load('/data/datasets/ADNI_NoBack/ADNI_128_S_1409_MR_MPR__GradWarp__B1_Correction__N3__Scaled_Br_20070821114304781_S33787_I69400.npy')
+    # heat_NACC = upsample(np.load(path + '{}/'.format(exp_idx) + 'NACC_MCC.npy'))
+    # heat_AIBL = upsample(np.load(path + '{}/'.format(exp_idx) + 'AIBL_MCC.npy'))
+    # heat_FHS = upsample(np.load(path + '{}/'.format(exp_idx) + 'FHS_MCC.npy'))
+    MRI = np.load('/home/liuj/文档/brain2020/data/ABCD-FINAL/Sub500.npy')
 
     fig = plt.figure(figsize=figsize, dpi=300)
     grid = ImageGrid(fig, 111,
@@ -48,20 +48,20 @@ def plot_heatmap(path, exp_idx, figsize):
     grid[0].axis('off')
     grid[0].set_title("   MRI    ", fontdict=font_dict, loc='right', color = "k")
 
-    for idx, heatmap in enumerate([heat_train, heat_valid, heat_test, heat_AIBL, heat_FHS, heat_NACC]):
+    for idx, heatmap in enumerate([heat_train, heat_valid, heat_test]):
         im = grid[1+idx].imshow(heatmap[:, :, 40].transpose((1, 0))[::-1, :], cmap = 'hot', vmin=small, vmax=1.0)
         grid[1+idx].axis('off')
         grid[1+idx].set_title(titlename[idx], fontdict=font_dict, loc='center', color = "k")
 
     im = grid[7].imshow(np.rot90(MRI[:, 100, :]), cmap = 'gray', vmin=-1, vmax=2.5)
     grid[7].axis('off')
-    for idx, heatmap in enumerate([heat_train, heat_valid, heat_test, heat_AIBL, heat_FHS, heat_NACC]):
+    for idx, heatmap in enumerate([heat_train, heat_valid, heat_test]):
         im = grid[8+idx].imshow(np.rot90(heatmap[:, 100, :]), cmap = 'hot', vmin=small, vmax=1.0)
         grid[8+idx].axis('off')
 
     im = grid[14].imshow(resize(np.rot90(MRI[48, :, :])), cmap = 'gray', vmin=-1, vmax=2.5)
     grid[14].axis('off')
-    for idx, heatmap in enumerate([heat_train, heat_valid, heat_test, heat_AIBL, heat_FHS, heat_NACC]):
+    for idx, heatmap in enumerate([heat_train, heat_valid, heat_test]):
         im = grid[15+idx].imshow(resize(np.rot90(heatmap[48, :, :])), cmap = 'hot', vmin=small, vmax=1.0)
         grid[15+idx].axis('off')
 
@@ -74,9 +74,9 @@ def plot_heatmap(path, exp_idx, figsize):
 
 
 def plot_complete_heatmap(path, exp_idx, figsize):
-    filename = 'ADNI_128_S_1409_MR_MPR__GradWarp__B1_Correction__N3__Scaled_Br_20070821114304781_S33787_I69400.npy'
+    filename = 'Sub441.npy'
     risk = upsample(np.load(path + '{}/'.format(exp_idx) + 'test_MCC.npy'))
-    mri = np.load('/data/datasets/ADNI_NoBack/'+filename)
+    mri = np.load('/home/liuj/文档/brain2020/data/ABCD-FINAL/'+filename)
     small = 0.1
     cbar_font_size = 14
     title_size = 14
@@ -143,13 +143,13 @@ def plot_complete_heatmap(path, exp_idx, figsize):
 
 
 if __name__ == '__main__':
-    plot_heatmap('../DPMs/fcn_exp', exp_idx=0, figsize=(9, 4))
-    plot_complete_heatmap('../DPMs/fcn_exp', exp_idx=0, figsize=(3, 2))
-    plot_heatmap('../DPMs/fcn_exp', exp_idx=1, figsize=(9, 4))
-    plot_complete_heatmap('../DPMs/fcn_exp', exp_idx=1, figsize=(3, 2))
-    plot_heatmap('../DPMs/fcn_exp', exp_idx=2, figsize=(9, 4))
-    plot_complete_heatmap('../DPMs/fcn_exp', exp_idx=2, figsize=(3, 2))
-    plot_heatmap('../DPMs/fcn_exp', exp_idx=3, figsize=(9, 4))
-    plot_complete_heatmap('../DPMs/fcn_exp', exp_idx=3, figsize=(3, 2))
-    plot_heatmap('../DPMs/fcn_exp', exp_idx=4, figsize=(9, 4))
-    plot_complete_heatmap('../DPMs/fcn_exp', exp_idx=4, figsize=(3, 2))
+    plot_heatmap('/home/liuj/文档/tmp/brain2020/DPMs/fcn_exp', exp_idx=0, figsize=(9, 4))
+    # plot_complete_heatmap('/home/liuj/文档/tmp/brain2020/DPMs/fcn_exp', exp_idx=0, figsize=(3, 2))
+    # plot_heatmap('/home/liuj/文档/tmp/brain2020/DPMs/fcn_exp', exp_idx=1, figsize=(9, 4))
+    # plot_complete_heatmap('/home/liuj/文档/tmp/brain2020/DPMs/fcn_exp', exp_idx=1, figsize=(3, 2))
+    # plot_heatmap('/home/liuj/文档/tmp/brain2020/DPMs/fcn_exp', exp_idx=2, figsize=(9, 4))
+    # plot_complete_heatmap('/home/liuj/文档/tmp/brain2020/DPMs/fcn_exp', exp_idx=2, figsize=(3, 2))
+    # plot_heatmap('/home/liuj/文档/tmp/brain2020/DPMs/fcn_exp', exp_idx=3, figsize=(9, 4))
+    # plot_complete_heatmap('/home/liuj/文档/tmp/brain2020/DPMs/fcn_exp', exp_idx=3, figsize=(3, 2))
+    # plot_heatmap('/home/liuj/文档/tmp/brain2020/DPMs/fcn_exp', exp_idx=4, figsize=(9, 4))
+    # plot_complete_heatmap('/home/liuj/文档/tmp/brain2020/DPMs/fcn_exp', exp_idx=4, figsize=(3, 2))

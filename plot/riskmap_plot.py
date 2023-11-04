@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../')
+sys.path.append('./')
 from utils import get_AD_risk
 import numpy as np
 import matplotlib
@@ -9,15 +9,15 @@ from scipy.ndimage import zoom
 from heatmap_plot import upsample, resize
 
 def plot_riskmap(path, figsize):
-    filenames = ['ADNI_128_S_1409_MR_MPR__GradWarp__B1_Correction__N3__Scaled_Br_20070821114304781_S33787_I69400.npy', \
-                 'ADNI_062_S_0730_MR_MPR__GradWarp__B1_Correction__N3__Scaled_Br_20070424120556863_S17062_I50487.npy', \
-                 'ADNI_033_S_0923_MR_MPR__GradWarp__B1_Correction__N3__Scaled_Br_20070304125438114_S19544_I42509.npy', \
-                 'ADNI_018_S_0055_MR_MPR____N3__Scaled_2_Br_20081008152513256_S16960_I119795.npy']
+    filenames = ['Sub441.npy', \
+                 'Sub442.npy', \
+                 'Sub428.npy', \
+                 'Sub493.npy']
     risks = []
     MRIs = []
     for filename in filenames:
         risk = upsample(get_AD_risk(np.load(path + filename)))
-        mri = np.load('/data/datasets/ADNI_NoBack/'+filename)
+        mri = np.load('/home/liuj/文档/brain2020/data/ABCD-FINAL/'+filename)
         risks.append(risk)
         MRIs.append(mri)
 
@@ -33,7 +33,7 @@ def plot_riskmap(path, figsize):
                      )
 
     font_dict = {'fontweight': 'bold', 'fontsize': 14}
-    titlename = ['  AD subject 1  ', '  AD subject 2  ', '  NL subject 1  ', '  NL subject 2  ']
+    titlename = ['  MCI subject 1  ', '  MCI subject 2  ', '  NL subject 1  ', '  NL subject 2  ']
 
     for i in range(4):
         im = grid[i*2].imshow(MRIs[i][:, :, 40].transpose((1, 0))[::-1, :], cmap='gray', vmin=-1, vmax=2.5)
@@ -63,9 +63,9 @@ def plot_riskmap(path, figsize):
 
 
 def plot_complete_riskmap(path, figsize):
-    filename = 'ADNI_128_S_1409_MR_MPR__GradWarp__B1_Correction__N3__Scaled_Br_20070821114304781_S33787_I69400.npy'
+    filename = 'Sub001.npy'
     risk = upsample(get_AD_risk(np.load(path + filename)))
-    mri = np.load('/data/datasets/ADNI_NoBack/'+filename)
+    mri = np.load('/home/liuj/文档/brain2020/data/ABCD-FINAL/'+filename)
     font_dict = {'fontweight': 'bold', 'fontsize': 14}
 
     # axial plot
@@ -143,5 +143,5 @@ def plot_complete_riskmap(path, figsize):
 
 
 if __name__ == '__main__':
-    plot_riskmap('../DPMs/fcn_exp1/', figsize=(9, 4))
-    plot_complete_riskmap('../DPMs/fcn_exp1/', figsize=(3, 2))
+    plot_riskmap('/home/liuj/文档/tmp/brain2020/DPMs/fcn_exp1/', figsize=(9, 4))
+    # plot_complete_riskmap('/home/liuj/文档/tmp/brain2020/DPMs/fcn_exp1/', figsize=(3, 2))

@@ -1,0 +1,307 @@
+nohup: 忽略输入
+epoch:  0
+0th epoch validation confusion matrix: [[39.0, 20.0], [0.0, 0.0]] eval_metric: 0.6610
+epoch:  20
+20th epoch validation confusion matrix: [[25.92, 13.76], [13.08, 6.24]] eval_metric: 0.5451
+epoch:  40
+40th epoch validation confusion matrix: [[36.37, 18.66], [2.63, 1.34]] eval_metric: 0.6392
+epoch:  60
+60th epoch validation confusion matrix: [[38.67, 19.79], [0.33, 0.21]] eval_metric: 0.6590
+epoch:  80
+80th epoch validation confusion matrix: [[38.11, 19.41], [0.89, 0.59]] eval_metric: 0.6559
+epoch:  100
+100th epoch validation confusion matrix: [[38.55, 19.67], [0.45, 0.33]] eval_metric: 0.6590
+epoch:  120
+120th epoch validation confusion matrix: [[35.54, 17.57], [3.46, 2.43]] eval_metric: 0.6436
+epoch:  140
+140th epoch validation confusion matrix: [[26.7, 13.06], [12.3, 6.94]] eval_metric: 0.5702
+epoch:  160
+160th epoch validation confusion matrix: [[10.02, 4.59], [28.98, 15.41]] eval_metric: 0.4310
+epoch:  180
+180th epoch validation confusion matrix: [[17.65, 9.3], [21.35, 10.7]] eval_metric: 0.4805
+epoch:  200
+200th epoch validation confusion matrix: [[32.02, 15.52], [6.98, 4.48]] eval_metric: 0.6186
+epoch:  220
+220th epoch validation confusion matrix: [[35.42, 17.34], [3.58, 2.66]] eval_metric: 0.6454
+epoch:  240
+240th epoch validation confusion matrix: [[29.93, 13.79], [9.07, 6.21]] eval_metric: 0.6125
+epoch:  260
+260th epoch validation confusion matrix: [[32.34, 15.48], [6.66, 4.52]] eval_metric: 0.6247
+epoch:  280
+280th epoch validation confusion matrix: [[28.29, 12.96], [10.71, 7.04]] eval_metric: 0.5988
+epoch:  300
+300th epoch validation confusion matrix: [[27.24, 12.51], [11.76, 7.49]] eval_metric: 0.5886
+epoch:  320
+320th epoch validation confusion matrix: [[24.28, 11.15], [14.72, 8.85]] eval_metric: 0.5615
+epoch:  340
+340th epoch validation confusion matrix: [[23.67, 10.95], [15.33, 9.05]] eval_metric: 0.5546
+epoch:  360
+360th epoch validation confusion matrix: [[27.56, 12.42], [11.44, 7.58]] eval_metric: 0.5956
+epoch:  380
+380th epoch validation confusion matrix: [[29.06, 13.08], [9.94, 6.92]] eval_metric: 0.6098
+epoch:  400
+400th epoch validation confusion matrix: [[32.64, 15.21], [6.36, 4.79]] eval_metric: 0.6344
+epoch:  420
+420th epoch validation confusion matrix: [[26.17, 12.06], [12.83, 7.94]] eval_metric: 0.5781
+epoch:  440
+440th epoch validation confusion matrix: [[30.47, 13.65], [8.53, 6.35]] eval_metric: 0.6241
+epoch:  460
+460th epoch validation confusion matrix: [[22.43, 9.57], [16.57, 10.43]] eval_metric: 0.5569
+epoch:  480
+480th epoch validation confusion matrix: [[27.46, 11.98], [11.54, 8.02]] eval_metric: 0.6014
+epoch:  500
+500th epoch validation confusion matrix: [[26.0, 12.09], [13.0, 7.91]] eval_metric: 0.5747
+epoch:  520
+520th epoch validation confusion matrix: [[25.91, 11.0], [13.09, 9.0]] eval_metric: 0.5917
+epoch:  540
+540th epoch validation confusion matrix: [[27.91, 12.03], [11.09, 7.97]] eval_metric: 0.6081
+epoch:  560
+560th epoch validation confusion matrix: [[30.81, 13.66], [8.19, 6.34]] eval_metric: 0.6297
+epoch:  580
+580th epoch validation confusion matrix: [[23.35, 10.13], [15.65, 9.87]] eval_metric: 0.5631
+epoch:  600
+600th epoch validation confusion matrix: [[32.71, 14.61], [6.29, 5.39]] eval_metric: 0.6458
+epoch:  620
+620th epoch validation confusion matrix: [[33.26, 15.37], [5.74, 4.63]] eval_metric: 0.6422
+epoch:  640
+640th epoch validation confusion matrix: [[28.91, 12.26], [10.09, 7.74]] eval_metric: 0.6212
+epoch:  660
+660th epoch validation confusion matrix: [[31.14, 13.82], [7.86, 6.18]] eval_metric: 0.6325
+epoch:  680
+680th epoch validation confusion matrix: [[32.39, 14.32], [6.61, 5.68]] eval_metric: 0.6453
+epoch:  700
+700th epoch validation confusion matrix: [[31.04, 13.43], [7.96, 6.57]] eval_metric: 0.6375
+epoch:  720
+720th epoch validation confusion matrix: [[31.64, 13.5], [7.36, 6.5]] eval_metric: 0.6464
+epoch:  740
+740th epoch validation confusion matrix: [[30.82, 12.91], [8.18, 7.09]] eval_metric: 0.6425
+epoch:  760
+760th epoch validation confusion matrix: [[31.78, 13.67], [7.22, 6.33]] eval_metric: 0.6459
+epoch:  780
+780th epoch validation confusion matrix: [[28.38, 12.31], [10.62, 7.69]] eval_metric: 0.6114
+epoch:  800
+800th epoch validation confusion matrix: [[32.5, 14.08], [6.5, 5.92]] eval_metric: 0.6512
+epoch:  820
+820th epoch validation confusion matrix: [[32.34, 14.01], [6.66, 5.99]] eval_metric: 0.6497
+epoch:  840
+840th epoch validation confusion matrix: [[28.4, 11.57], [10.6, 8.43]] eval_metric: 0.6242
+epoch:  860
+860th epoch validation confusion matrix: [[32.74, 14.21], [6.26, 5.79]] eval_metric: 0.6531
+epoch:  880
+880th epoch validation confusion matrix: [[31.43, 13.31], [7.57, 6.69]] eval_metric: 0.6461
+epoch:  900
+900th epoch validation confusion matrix: [[29.41, 12.47], [9.59, 7.53]] eval_metric: 0.6261
+epoch:  920
+920th epoch validation confusion matrix: [[33.44, 14.73], [5.56, 5.27]] eval_metric: 0.6561
+epoch:  940
+940th epoch validation confusion matrix: [[32.22, 14.12], [6.78, 5.88]] eval_metric: 0.6458
+epoch:  960
+960th epoch validation confusion matrix: [[29.16, 12.28], [9.84, 7.72]] eval_metric: 0.6251
+epoch:  980
+980th epoch validation confusion matrix: [[30.92, 12.73], [8.08, 7.27]] eval_metric: 0.6473
+epoch:  1000
+1000th epoch validation confusion matrix: [[23.47, 8.93], [15.53, 11.07]] eval_metric: 0.5854
+epoch:  1020
+1020th epoch validation confusion matrix: [[33.1, 14.28], [5.9, 5.72]] eval_metric: 0.6580
+epoch:  1040
+1040th epoch validation confusion matrix: [[33.38, 14.11], [5.62, 5.89]] eval_metric: 0.6656
+epoch:  1060
+1060th epoch validation confusion matrix: [[32.45, 13.63], [6.55, 6.37]] eval_metric: 0.6580
+epoch:  1080
+1080th epoch validation confusion matrix: [[29.75, 12.17], [9.25, 7.83]] eval_metric: 0.6369
+epoch:  1100
+1100th epoch validation confusion matrix: [[34.19, 14.61], [4.81, 5.39]] eval_metric: 0.6708
+epoch:  1120
+1120th epoch validation confusion matrix: [[31.25, 12.74], [7.75, 7.26]] eval_metric: 0.6527
+epoch:  1140
+1140th epoch validation confusion matrix: [[27.84, 10.7], [11.16, 9.3]] eval_metric: 0.6295
+epoch:  1160
+1160th epoch validation confusion matrix: [[27.6, 11.04], [11.4, 8.96]] eval_metric: 0.6197
+epoch:  1180
+1180th epoch validation confusion matrix: [[29.38, 11.23], [9.62, 8.77]] eval_metric: 0.6466
+epoch:  1200
+1200th epoch validation confusion matrix: [[34.09, 14.4], [4.91, 5.6]] eval_metric: 0.6727
+epoch:  1220
+1220th epoch validation confusion matrix: [[30.91, 11.98], [8.09, 8.02]] eval_metric: 0.6598
+epoch:  1240
+1240th epoch validation confusion matrix: [[32.95, 13.39], [6.05, 6.61]] eval_metric: 0.6705
+epoch:  1260
+1260th epoch validation confusion matrix: [[29.76, 11.65], [9.24, 8.35]] eval_metric: 0.6459
+epoch:  1280
+1280th epoch validation confusion matrix: [[26.14, 9.69], [12.86, 10.31]] eval_metric: 0.6178
+epoch:  1300
+1300th epoch validation confusion matrix: [[28.38, 10.66], [10.62, 9.34]] eval_metric: 0.6393
+epoch:  1320
+1320th epoch validation confusion matrix: [[28.12, 10.4], [10.88, 9.6]] eval_metric: 0.6393
+epoch:  1340
+1340th epoch validation confusion matrix: [[30.87, 11.98], [8.13, 8.02]] eval_metric: 0.6592
+epoch:  1360
+1360th epoch validation confusion matrix: [[28.1, 10.7], [10.9, 9.3]] eval_metric: 0.6339
+epoch:  1380
+1380th epoch validation confusion matrix: [[31.61, 12.35], [7.39, 7.65]] eval_metric: 0.6654
+epoch:  1400
+1400th epoch validation confusion matrix: [[27.86, 10.35], [11.14, 9.65]] eval_metric: 0.6358
+epoch:  1420
+1420th epoch validation confusion matrix: [[31.37, 12.55], [7.63, 7.45]] eval_metric: 0.6580
+epoch:  1440
+1440th epoch validation confusion matrix: [[29.58, 11.45], [9.42, 8.55]] eval_metric: 0.6463
+epoch:  1460
+1460th epoch validation confusion matrix: [[34.45, 14.29], [4.55, 5.71]] eval_metric: 0.6807
+epoch:  1480
+1480th epoch validation confusion matrix: [[35.18, 14.57], [3.82, 5.43]] eval_metric: 0.6883
+epoch:  1500
+1500th epoch validation confusion matrix: [[28.95, 10.59], [10.05, 9.41]] eval_metric: 0.6502
+epoch:  1520
+1520th epoch validation confusion matrix: [[24.88, 8.84], [14.12, 11.16]] eval_metric: 0.6108
+epoch:  1540
+1540th epoch validation confusion matrix: [[21.08, 6.66], [17.92, 13.34]] eval_metric: 0.5834
+epoch:  1560
+1560th epoch validation confusion matrix: [[29.95, 11.36], [9.05, 8.64]] eval_metric: 0.6541
+epoch:  1580
+1580th epoch validation confusion matrix: [[27.05, 9.75], [11.95, 10.25]] eval_metric: 0.6322
+epoch:  1600
+1600th epoch validation confusion matrix: [[35.39, 14.97], [3.61, 5.03]] eval_metric: 0.6851
+epoch:  1620
+1620th epoch validation confusion matrix: [[30.15, 11.13], [8.85, 8.87]] eval_metric: 0.6614
+epoch:  1640
+1640th epoch validation confusion matrix: [[32.19, 12.58], [6.81, 7.42]] eval_metric: 0.6714
+epoch:  1660
+1660th epoch validation confusion matrix: [[30.43, 11.16], [8.57, 8.84]] eval_metric: 0.6656
+epoch:  1680
+1680th epoch validation confusion matrix: [[34.31, 13.86], [4.69, 6.14]] eval_metric: 0.6856
+epoch:  1700
+1700th epoch validation confusion matrix: [[36.16, 15.71], [2.84, 4.29]] eval_metric: 0.6856
+epoch:  1720
+1720th epoch validation confusion matrix: [[22.39, 7.75], [16.61, 12.25]] eval_metric: 0.5871
+epoch:  1740
+1740th epoch validation confusion matrix: [[32.94, 13.3], [6.06, 6.7]] eval_metric: 0.6719
+epoch:  1760
+1760th epoch validation confusion matrix: [[22.84, 7.9], [16.16, 12.1]] eval_metric: 0.5922
+epoch:  1780
+1780th epoch validation confusion matrix: [[35.04, 14.54], [3.96, 5.46]] eval_metric: 0.6864
+epoch:  1800
+1800th epoch validation confusion matrix: [[25.41, 9.33], [13.59, 10.67]] eval_metric: 0.6115
+epoch:  1820
+1820th epoch validation confusion matrix: [[30.8, 11.46], [8.2, 8.54]] eval_metric: 0.6668
+epoch:  1840
+1840th epoch validation confusion matrix: [[32.05, 12.13], [6.95, 7.87]] eval_metric: 0.6766
+epoch:  1860
+1860th epoch validation confusion matrix: [[33.91, 13.66], [5.09, 6.34]] eval_metric: 0.6822
+epoch:  1880
+1880th epoch validation confusion matrix: [[30.76, 11.77], [8.24, 8.23]] eval_metric: 0.6608
+epoch:  1900
+1900th epoch validation confusion matrix: [[24.1, 7.9], [14.9, 12.1]] eval_metric: 0.6136
+epoch:  1920
+1920th epoch validation confusion matrix: [[26.93, 9.55], [12.07, 10.45]] eval_metric: 0.6336
+epoch:  1940
+1940th epoch validation confusion matrix: [[30.58, 11.4], [8.42, 8.6]] eval_metric: 0.6641
+epoch:  1960
+1960th epoch validation confusion matrix: [[33.98, 13.62], [5.02, 6.38]] eval_metric: 0.6841
+epoch:  1980
+1980th epoch validation confusion matrix: [[28.99, 10.43], [10.01, 9.57]] eval_metric: 0.6536
+epoch:  2000
+2000th epoch validation confusion matrix: [[29.32, 10.91], [9.68, 9.09]] eval_metric: 0.6510
+epoch:  2020
+2020th epoch validation confusion matrix: [[31.13, 11.64], [7.87, 8.36]] eval_metric: 0.6693
+epoch:  2040
+2040th epoch validation confusion matrix: [[26.3, 9.35], [12.7, 10.65]] eval_metric: 0.6263
+epoch:  2060
+2060th epoch validation confusion matrix: [[32.05, 12.14], [6.95, 7.86]] eval_metric: 0.6764
+epoch:  2080
+2080th epoch validation confusion matrix: [[34.42, 13.87], [4.58, 6.13]] eval_metric: 0.6873
+epoch:  2100
+2100th epoch validation confusion matrix: [[30.93, 11.72], [8.07, 8.28]] eval_metric: 0.6646
+epoch:  2120
+2120th epoch validation confusion matrix: [[28.37, 10.08], [10.63, 9.92]] eval_metric: 0.6490
+epoch:  2140
+2140th epoch validation confusion matrix: [[34.29, 13.5], [4.71, 6.5]] eval_metric: 0.6914
+epoch:  2160
+2160th epoch validation confusion matrix: [[33.31, 12.87], [5.69, 7.13]] eval_metric: 0.6854
+epoch:  2180
+2180th epoch validation confusion matrix: [[32.75, 12.72], [6.25, 7.28]] eval_metric: 0.6785
+epoch:  2200
+2200th epoch validation confusion matrix: [[29.69, 11.24], [9.31, 8.76]] eval_metric: 0.6517
+epoch:  2220
+2220th epoch validation confusion matrix: [[33.55, 13.09], [5.45, 6.91]] eval_metric: 0.6858
+epoch:  2240
+2240th epoch validation confusion matrix: [[33.22, 12.77], [5.78, 7.23]] eval_metric: 0.6856
+epoch:  2260
+2260th epoch validation confusion matrix: [[14.68, 3.17], [24.32, 16.83]] eval_metric: 0.5341
+epoch:  2280
+2280th epoch validation confusion matrix: [[32.09, 11.94], [6.91, 8.06]] eval_metric: 0.6805
+epoch:  2300
+2300th epoch validation confusion matrix: [[29.14, 10.39], [9.86, 9.61]] eval_metric: 0.6568
+epoch:  2320
+2320th epoch validation confusion matrix: [[32.99, 12.95], [6.01, 7.05]] eval_metric: 0.6786
+epoch:  2340
+2340th epoch validation confusion matrix: [[31.23, 11.91], [7.77, 8.09]] eval_metric: 0.6664
+epoch:  2360
+2360th epoch validation confusion matrix: [[22.59, 7.07], [16.41, 12.93]] eval_metric: 0.6020
+epoch:  2380
+2380th epoch validation confusion matrix: [[30.62, 11.19], [8.38, 8.81]] eval_metric: 0.6683
+epoch:  2400
+2400th epoch validation confusion matrix: [[35.79, 15.1], [3.21, 4.9]] eval_metric: 0.6897
+epoch:  2420
+2420th epoch validation confusion matrix: [[30.19, 11.05], [8.81, 8.95]] eval_metric: 0.6634
+epoch:  2440
+2440th epoch validation confusion matrix: [[29.6, 10.82], [9.4, 9.18]] eval_metric: 0.6573
+epoch:  2460
+2460th epoch validation confusion matrix: [[35.24, 14.36], [3.76, 5.64]] eval_metric: 0.6929
+epoch:  2480
+2480th epoch validation confusion matrix: [[32.71, 12.3], [6.29, 7.7]] eval_metric: 0.6849
+epoch:  2500
+2500th epoch validation confusion matrix: [[31.94, 11.76], [7.06, 8.24]] eval_metric: 0.6810
+epoch:  2520
+2520th epoch validation confusion matrix: [[33.28, 12.46], [5.72, 7.54]] eval_metric: 0.6919
+epoch:  2540
+2540th epoch validation confusion matrix: [[33.4, 12.94], [5.6, 7.06]] eval_metric: 0.6858
+epoch:  2560
+2560th epoch validation confusion matrix: [[27.62, 9.46], [11.38, 10.54]] eval_metric: 0.6468
+epoch:  2580
+2580th epoch validation confusion matrix: [[34.55, 13.34], [4.45, 6.66]] eval_metric: 0.6985
+epoch:  2600
+2600th epoch validation confusion matrix: [[34.59, 13.69], [4.41, 6.31]] eval_metric: 0.6932
+epoch:  2620
+2620th epoch validation confusion matrix: [[25.28, 9.03], [13.72, 10.97]] eval_metric: 0.6144
+epoch:  2640
+2640th epoch validation confusion matrix: [[20.5, 5.75], [18.5, 14.25]] eval_metric: 0.5890
+epoch:  2660
+2660th epoch validation confusion matrix: [[32.91, 12.27], [6.09, 7.73]] eval_metric: 0.6888
+epoch:  2680
+2680th epoch validation confusion matrix: [[32.67, 12.15], [6.33, 7.85]] eval_metric: 0.6868
+epoch:  2700
+2700th epoch validation confusion matrix: [[30.34, 10.99], [8.66, 9.01]] eval_metric: 0.6669
+epoch:  2720
+2720th epoch validation confusion matrix: [[33.97, 13.1], [5.03, 6.9]] eval_metric: 0.6927
+epoch:  2740
+2740th epoch validation confusion matrix: [[32.74, 12.21], [6.26, 7.79]] eval_metric: 0.6869
+epoch:  2760
+2760th epoch validation confusion matrix: [[33.63, 13.02], [5.37, 6.98]] eval_metric: 0.6883
+epoch:  2780
+2780th epoch validation confusion matrix: [[35.17, 13.91], [3.83, 6.09]] eval_metric: 0.6993
+epoch:  2800
+2800th epoch validation confusion matrix: [[34.85, 13.66], [4.15, 6.34]] eval_metric: 0.6981
+epoch:  2820
+2820th epoch validation confusion matrix: [[34.61, 13.62], [4.39, 6.38]] eval_metric: 0.6947
+epoch:  2840
+2840th epoch validation confusion matrix: [[31.61, 11.68], [7.39, 8.32]] eval_metric: 0.6768
+epoch:  2860
+2860th epoch validation confusion matrix: [[35.28, 14.12], [3.72, 5.88]] eval_metric: 0.6976
+epoch:  2880
+2880th epoch validation confusion matrix: [[32.84, 12.5], [6.16, 7.5]] eval_metric: 0.6837
+epoch:  2900
+2900th epoch validation confusion matrix: [[33.53, 12.54], [5.47, 7.46]] eval_metric: 0.6947
+epoch:  2920
+2920th epoch validation confusion matrix: [[33.15, 12.54], [5.85, 7.46]] eval_metric: 0.6883
+epoch:  2940
+2940th epoch validation confusion matrix: [[18.24, 4.8], [20.76, 15.2]] eval_metric: 0.5668
+epoch:  2960
+2960th epoch validation confusion matrix: [[34.59, 13.53], [4.41, 6.47]] eval_metric: 0.6959
+epoch:  2980
+2980th epoch validation confusion matrix: [[33.8, 12.53], [5.2, 7.47]] eval_metric: 0.6995
+Best model saved at the 2980th epoch: 0.6994915254237287 [[33.8, 12.53], [5.2, 7.47]]
+testing and generating DPMs ... 
+train confusion matrix  [[95.42, 45.43], [11.58, 27.57]]  accuracy  0.6832777777777779
+valid confusion matrix  [[33.8, 12.53], [5.2, 7.47]]  accuracy  0.6994915254237287
+test confusion matrix  [[30.85, 14.24], [4.15, 8.76]]  accuracy  0.6829310344827586
+DPM generation is done
