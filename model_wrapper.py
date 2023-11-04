@@ -297,7 +297,7 @@ class FCN_Wrapper(CNN_Wrapper):
 
 
 class MLP_Wrapper_A(CNN_Wrapper):
-    def __init__(self, imbalan_ratio, fil_num, drop_rate, seed, batch_size, balanced, exp_idx, model_name, metric, roi_threshold, roi_count=200, choice='count'):
+    def __init__(self, imbalan_ratio, fil_num, drop_rate, seed, batch_size, balanced, exp_idx, model_name, metric, roi_threshold,  type1, type2, roi_count=200, choice='count'):
         self.seed = seed
         self.imbalan_ratio = imbalan_ratio
         self.choice = choice
@@ -306,12 +306,13 @@ class MLP_Wrapper_A(CNN_Wrapper):
         self.roi_count = roi_count
         self.roi_threshold = roi_threshold
         self.eval_metric = get_accu if metric == 'accuracy' else get_MCC
-        self.checkpoint_dir = './checkpoint_dir/{}_exp{}/'.format(self.model_name, exp_idx)
+        self.checkpoint_dir = './checkpoint_dir_{}_{}/{}_exp{}/'.format(type1, type2, self.model_name, exp_idx)
         if not os.path.exists(self.checkpoint_dir):
             os.mkdir(self.checkpoint_dir)
         self.Data_dir = './DPMs/fcn_exp{}/'.format(exp_idx)
         self.prepare_dataloader(batch_size, balanced, self.Data_dir)
         self.model = _MLP_A(in_size=self.in_size, fil_num=fil_num, drop_rate=drop_rate)
+
 
     def prepare_dataloader(self, batch_size, balanced, Data_dir):
         train_data = MLP_Data(Data_dir, self.exp_idx, stage='train', roi_threshold=self.roi_threshold, roi_count=self.roi_count, choice=self.choice, seed=self.seed)
@@ -388,6 +389,10 @@ class MLP_Wrapper_A(CNN_Wrapper):
                 f.close()
                 accu_list.append(self.eval_metric(matrix))
         return accu_list
+
+    def load_model(self, number):
+        self.model.load_state_dict(torch.load('{}{}_{}.pth'.format(self.checkpoint_dir, self.model_name, number)))
+        self.model.train(False)
 
 
 class MLP_Wrapper_B(MLP_Wrapper_A):
