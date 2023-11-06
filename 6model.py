@@ -86,7 +86,7 @@ def getFcn(config):
         fcn[i].load_model(number[i])
     return fcn
 
-def six_model_test(config):
+def generate_DPM(config):
     fcn_setting = config['fcn']
     fcn = getFcn(config)  
     mlp = getMlp(config['mlp_A'])
@@ -96,15 +96,35 @@ def six_model_test(config):
             data = FCN_Data(Data_dir, 0, stage=stage, whole_volume=True, seed=seed, patch_size=fcn_setting['patch_size'])
             dataloader = DataLoader(data, batch_size=1, shuffle=False)
             for idx, (inputs, labels) in enumerate(dataloader):
+                # generate DPM
                 for i in range(6):
                     fcn_model = fcn[i]
-                    mlp_model = mlp[i]
 
                     fcn_model.generate_DPM(inputs, data.Data_list[idx])
+
+def mlp_predict(config):
+    mlp_setting = config['mlp_A']
+    mlp = getMlp(mlp_setting)
+    all_type = [['nl', 'scd'], ['nl', 'mci'], ['nl', 'ad'], ['scd', 'mci'], ['scd', 'ad'], ['mci', 'ad']]
+    with torch.no_grad():
+        for stage in ['train', 'valid', 'test']:
+            print(stage)
+            result = [[], [], [], [], [], []]
+            for i in range(6):
+                model = mlp[i]
+                type1, type2 = all_type[i][0], all_type[i][1]
+                data = MLP_Data('./DPMs_{}_{}/fcn_exp0/'.format(type1, type2), 0, stage=stage, roi_threshold=mlp_setting['roi_threshold'], roi_count=mlp_setting['roi_count'], choice=mlp_setting['choice'], seed=seed)
+                dataloader = DataLoader(data, batch_size=10, shuffle=False)
+
+                for idx, (inputs, labels, _) in enumerate(dataloader):
+                    inputs, labels = inputs, labels
+                    res = model.predict(inputs)
+                    result[i].append([res, labels])
 
 
 if __name__ == "__main__":
     config = read_json('./config.json')
     seed, repe_time = 1000, config['repeat_time']
-    # generate_corresponding_dpm()
-    six_model_test(config)
+
+    generate_DPM(config)
+    # mlp_predict(config)
