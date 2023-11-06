@@ -4,7 +4,17 @@ import numpy as np
 import torch
 from dataloader import CNN_Data, FCN_Data, MLP_Data, MLP_Data_apoe, CNN_MLP_Data
 from torch.utils.data import Dataset, DataLoader
+from utils import matrix_sum, get_accu, get_MCC, get_confusion_matrix, write_raw_score, DPM_statistics, timeit, read_csv
 
+def transform(i):
+    if i == 'nl':
+        return 0
+    elif i == 'scd':
+        return 1
+    elif i == 'mci':
+        return 2
+    else:
+        return 3
 
 def six_model_test(config):
     mlp_setting = config
@@ -30,22 +40,28 @@ def six_model_test(config):
 
     with torch.no_grad():
          for stage in ['train', 'valid', 'test']:
+            print(stage)
             data = MLP_Data('./DPMs/fcn_exp0/', 0, stage=stage, roi_threshold=mlp_setting['roi_threshold'], roi_count=mlp_setting['roi_count'], choice=mlp_setting['choice'], seed=seed)
-            dataloader = DataLoader(data, batch_size=10, shuffle=False)
+            dataloader = DataLoader(data, batch_size=10, shuffle=True)
             
+            mat = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
             for idx, (inputs, labels, _) in enumerate(dataloader):
                 inputs, labels = inputs, labels
-                preds = []
-                result = [{} for i in range(10)]
+                result = [{} for i in range(inputs.shape[0])]
                 for model in mlp:
                     res = model.predict(inputs)
-                    for i in range(10):
+                    for i in range(inputs.shape[0]):
                         tag = res[i]
                         if not tag in result[i]:
                             result[i][tag] = 0
                         result[i][tag] += 1
-                print(result)
-                print(labels)
+                max_type = [max(d, key=lambda k:d[k]) for d in result]
+                preds = [transform(x) for x in max_type]
+                
+                
+                for i in range(inputs.shape[0]):
+                    mat[labels[i]][preds[i]] += 1
+            print(get_accu(mat))
                 
 
 
