@@ -4,6 +4,11 @@
 /output/*
 /DPMs/*
 /DPMs_nl_scd/*
+/DPMs_nl_mci/*
+/DPMs_nl_ad/*
+/DPMs_scd_mci/*
+/DPMs_scd_ad/*
+/DPMs_mci_ad/*
 # /plot/
 *.pyc
 *.tif

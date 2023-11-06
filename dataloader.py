@@ -140,6 +140,7 @@ class MLP_Data(Dataset):
             self.path = './lookupcsv/{}.csv'.format(stage)
         self.Data_list, self.Label_list, self.demor_list = read_csv_complete(self.path)
         self.risk_list = [get_AD_risk(np.load(Data_dir+filename+'.npy'))[self.roi] for filename in self.Data_list]
+        # self.risk_list = [get_AD_risk(np.load(Data_dir+filename+'.npy')) for filename in self.Data_list]
         self.in_size = self.risk_list[0].shape[0]
         
     def select_roi_thres(self):

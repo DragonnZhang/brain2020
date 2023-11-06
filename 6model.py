@@ -39,31 +39,6 @@ def getMlp(config):
         mlp[i].load_model(number[i])
     return mlp
 
-    # with torch.no_grad():
-    #      for stage in ['train', 'valid', 'test']:
-    #         print(stage)
-    #         data = MLP_Data('./DPMs/fcn_exp0/', 0, stage=stage, roi_threshold=mlp_setting['roi_threshold'], roi_count=mlp_setting['roi_count'], choice=mlp_setting['choice'], seed=seed)
-    #         dataloader = DataLoader(data, batch_size=10, shuffle=True)
-            
-    #         mat = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-    #         for idx, (inputs, labels, _) in enumerate(dataloader):
-    #             inputs, labels = inputs, labels
-    #             result = [{} for i in range(inputs.shape[0])]
-    #             for model in mlp:
-    #                 res = model.predict(inputs)
-    #                 for i in range(inputs.shape[0]):
-    #                     tag = res[i]
-    #                     if not tag in result[i]:
-    #                         result[i][tag] = 0
-    #                     result[i][tag] += 1
-    #             max_type = [max(d, key=lambda k:d[k]) for d in result]
-    #             preds = [transform(x) for x in max_type]
-                
-                
-    #             for i in range(inputs.shape[0]):
-    #                 mat[labels[i]][preds[i]] += 1
-    #         print(get_accu(mat))
-
 def getFcn(config):
     fcn_setting = config['fcn']            
     fcn1, fcn2, fcn3, fcn4, fcn5, fcn6 = None, None, None, None, None, None
@@ -89,7 +64,6 @@ def getFcn(config):
 def generate_DPM(config):
     fcn_setting = config['fcn']
     fcn = getFcn(config)  
-    mlp = getMlp(config['mlp_A'])
     with torch.no_grad():
         for stage in ['train', 'valid', 'test']:
             Data_dir = fcn_setting['Data_dir']
@@ -120,11 +94,31 @@ def mlp_predict(config):
                     inputs, labels = inputs, labels
                     res = model.predict(inputs)
                     result[i].append([res, labels])
+            mat = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+            for i in range(len(result[0])):
+                labels = result[0][i][1] # labels.length
+                tmp = []
+                for _ in range(len(labels)):
+                    tmp.append({})
+                for x in range(6):
+                    res = result[x][i][0]
+                    for num in range(len(res)):
+                        tag = res[num]
+                        dic = tmp[num]
+                        if not tag in dic:
+                            dic[tag] = 0
+                        dic[tag] += 1
+                max_type =  [max(d, key=lambda k:d[k]) for d in tmp]
+                preds = [transform(x) for x in max_type]
+                for i in range(inputs.shape[0]):
+                    mat[labels[i]][preds[i]] += 1
+            print(get_accu(mat))
+            
 
 
 if __name__ == "__main__":
     config = read_json('./config.json')
     seed, repe_time = 1000, config['repeat_time']
 
-    generate_DPM(config)
-    # mlp_predict(config)
+    # generate_DPM(config)
+    mlp_predict(config)
