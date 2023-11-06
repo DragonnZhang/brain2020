@@ -45,6 +45,7 @@ def six_model_test(config):
                             result[i][tag] = 0
                         result[i][tag] += 1
                 print(result)
+                print(labels)
                 
 
 
