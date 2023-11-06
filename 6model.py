@@ -86,25 +86,31 @@ def getFcn(config):
         fcn[i].load_model(number[i])
     return fcn
 
-def six_model_test(config):
+def generate_DPM(config):
     fcn_setting = config['fcn']
     fcn = getFcn(config)  
-    mlp = getMlp(config)
+    mlp = getMlp(config['mlp_A'])
     with torch.no_grad():
         for stage in ['train', 'valid', 'test']:
             Data_dir = fcn_setting['Data_dir']
             data = FCN_Data(Data_dir, 0, stage=stage, whole_volume=True, seed=seed, patch_size=fcn_setting['patch_size'])
             dataloader = DataLoader(data, batch_size=1, shuffle=False)
             for idx, (inputs, labels) in enumerate(dataloader):
+                # generate DPM
                 for i in range(6):
                     fcn_model = fcn[i]
-                    mlp_model = mlp[i]
 
                     fcn_model.generate_DPM(inputs, data.Data_list[idx])
+
+def mlp_predict(config):
+    mlp = getMlp(config)
+    with torch.no_grad():
+        for stage in ['train', 'valid', 'test']:
 
 
 if __name__ == "__main__":
     config = read_json('./config.json')
     seed, repe_time = 1000, config['repeat_time']
-    # generate_corresponding_dpm()
-    six_model_test(config)
+
+    generate_DPM(config)
+    mlp_predict(config)
