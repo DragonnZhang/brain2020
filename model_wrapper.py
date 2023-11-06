@@ -297,6 +297,16 @@ class FCN_Wrapper(CNN_Wrapper):
                 print(stage + ' confusion matrix ', matrix, ' accuracy ', self.eval_metric(matrix))
         print('DPM generation is done')
 
+    def load_mode(self, number):
+        self.model.load_state_dict(torch.load('{}{}_{}.pth'.format(self.checkpoint_dir, self.model_name, number)))
+        self.fcn = self.model.dense_to_conv()
+        self.fcn.train(False)
+    
+    def generate_DPM(self, inputs, filename):
+        inputs = inputs.cuda()
+        DPM = self.fcn(inputs, stage='inference').cpu().numpy().squeeze()
+        np.save(self.DPMs_dir + filename + '.npy', DPM)
+
 
 class MLP_Wrapper_A(CNN_Wrapper):
     def __init__(self, imbalan_ratio, fil_num, drop_rate, seed, batch_size, balanced, exp_idx, model_name, metric, roi_threshold,  type1, type2, roi_count=200, choice='count'):
