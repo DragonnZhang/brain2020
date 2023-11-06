@@ -36,9 +36,15 @@ def six_model_test(config):
             for idx, (inputs, labels, _) in enumerate(dataloader):
                 inputs, labels = inputs, labels
                 preds = []
-                result = []
+                result = [{} for i in range(10)]
                 for model in mlp:
-                    result.append(model.predict(inputs))
+                    res = model.predict(inputs)
+                    for i in range(10):
+                        tag = res[i]
+                        if not tag in result[i]:
+                            result[i][tag] = 0
+                        result[i][tag] += 1
+                print(result)
                 
 
 
