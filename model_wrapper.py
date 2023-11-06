@@ -184,7 +184,7 @@ class FCN_Wrapper(CNN_Wrapper):
                        exp_idx,
                        model_name,
                        metric,
-                       patch_size):
+                       patch_size, type1, type2):
 
         """
             :param fil_num:    output channel number of the first convolution layer
@@ -209,12 +209,14 @@ class FCN_Wrapper(CNN_Wrapper):
         self.eval_metric = get_accu if metric == 'accuracy' else get_MCC
         self.model = _FCN(num=fil_num, p=drop_rate).cuda()
         self.prepare_dataloader(batch_size, balanced, Data_dir)
+
+        self.type1, self.type2 = type1, type2
         if not os.path.exists('./checkpoint_dir/'): os.mkdir('./checkpoint_dir/')
-        self.checkpoint_dir = './checkpoint_dir/{}_exp{}/'.format(self.model_name, exp_idx)
+        self.checkpoint_dir = './checkpoint_dir_{}_{}/{}_exp{}/'.format(type1, type2, self.model_name, exp_idx)
         if not os.path.exists(self.checkpoint_dir):
             os.mkdir(self.checkpoint_dir)
-        if not os.path.exists('./DPMs/'): os.mkdir('./DPMs/')
-        self.DPMs_dir = './DPMs/{}_exp{}/'.format(self.model_name, exp_idx)
+        if not os.path.exists('./DPMs_{}_{}/'.format(type1, type2)): os.mkdir('./DPMs_{}_{}/'.format(type1, type2))
+        self.DPMs_dir = './DPMs_{}_{}/{}_exp{}/'.format(type1, type2, self.model_name, exp_idx)
         if not os.path.exists(self.DPMs_dir):
             os.mkdir(self.DPMs_dir)
 

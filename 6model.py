@@ -1,4 +1,4 @@
-from model_wrapper import MLP_Wrapper_A, MLP_Wrapper_B, MLP_Wrapper_C, MLP_Wrapper_D, MLP_Wrapper_E, MLP_Wrapper_F
+from model_wrapper import MLP_Wrapper_A, MLP_Wrapper_B, MLP_Wrapper_C, MLP_Wrapper_D, MLP_Wrapper_E, MLP_Wrapper_F, FCN_Wrapper
 from utils import read_json
 import numpy as np
 import torch
@@ -62,10 +62,29 @@ def six_model_test(config):
                 for i in range(inputs.shape[0]):
                     mat[labels[i]][preds[i]] += 1
             print(get_accu(mat))
-                
 
+def generate_corresponding_dpm():
+    fcn_setting = config['fcn']            
+    fcn1, fcn2, fcn3, fcn4, fcn5, fcn6 = None, None, None, None, None, None
+    fcn = [fcn1, fcn2, fcn3, fcn4, fcn5, fcn6]
+    all_type = [['nl', 'scd'], ['nl', 'mci'], ['nl', 'ad'], ['scd', 'mci'], ['scd', 'ad'], ['mci', 'ad']]
+    for i in range(6):
+        fcn[i] = FCN_Wrapper(fil_num        = fcn_setting['fil_num'],
+                        drop_rate       = fcn_setting['drop_rate'],
+                        batch_size      = fcn_setting['batch_size'],
+                        balanced        = fcn_setting['balanced'],
+                        Data_dir        = fcn_setting['Data_dir'],
+                        patch_size      = fcn_setting['patch_size'],
+                        exp_idx         = 0,
+                        seed            = seed,
+                        model_name      = 'fcn',
+                        metric          = 'accuracy',
+                        type1=all_type[i][0], type2=all_type[i][1]
+                        )
+        fcn[i].test_and_generate_DPMs()
 
 if __name__ == "__main__":
     config = read_json('./config.json')
     seed, repe_time = 1000, config['repeat_time']
-    six_model_test(config["mlp_A"])
+    generate_corresponding_dpm()
+    # six_model_test(config["mlp_A"])
