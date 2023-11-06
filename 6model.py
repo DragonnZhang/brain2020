@@ -103,9 +103,23 @@ def generate_DPM(config):
                     fcn_model.generate_DPM(inputs, data.Data_list[idx])
 
 def mlp_predict(config):
-    mlp = getMlp(config)
+    mlp_setting = config['mlp_A']
+    mlp = getMlp(mlp_setting)
+    all_type = [['nl', 'scd'], ['nl', 'mci'], ['nl', 'ad'], ['scd', 'mci'], ['scd', 'ad'], ['mci', 'ad']]
     with torch.no_grad():
         for stage in ['train', 'valid', 'test']:
+            print(stage)
+            result = [[], [], [], [], [], []]
+            for i in range(6):
+                model = mlp[i]
+                type1, type2 = all_type[i][0], all_type[i][1]
+                data = MLP_Data('./DPMs_{}_{}/fcn_exp0/'.format(type1, type2), 0, stage=stage, roi_threshold=mlp_setting['roi_threshold'], roi_count=mlp_setting['roi_count'], choice=mlp_setting['choice'], seed=seed)
+                dataloader = DataLoader(data, batch_size=10, shuffle=False)
+
+                for idx, (inputs, labels, _) in enumerate(dataloader):
+                    inputs, labels = inputs, labels
+                    res = model.predict(inputs)
+                    result[i].append([res, labels])
 
 
 if __name__ == "__main__":
@@ -113,4 +127,4 @@ if __name__ == "__main__":
     seed, repe_time = 1000, config['repeat_time']
 
     generate_DPM(config)
-    mlp_predict(config)
+    # mlp_predict(config)
