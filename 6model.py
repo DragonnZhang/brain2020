@@ -68,6 +68,7 @@ def generate_corresponding_dpm():
     fcn1, fcn2, fcn3, fcn4, fcn5, fcn6 = None, None, None, None, None, None
     fcn = [fcn1, fcn2, fcn3, fcn4, fcn5, fcn6]
     all_type = [['nl', 'scd'], ['nl', 'mci'], ['nl', 'ad'], ['scd', 'mci'], ['scd', 'ad'], ['mci', 'ad']]
+    number = [2260, 20, 2980, 2220, 2680, 2560]
     for i in range(6):
         fcn[i] = FCN_Wrapper(fil_num        = fcn_setting['fil_num'],
                         drop_rate       = fcn_setting['drop_rate'],
@@ -81,7 +82,7 @@ def generate_corresponding_dpm():
                         metric          = 'accuracy',
                         type1=all_type[i][0], type2=all_type[i][1]
                         )
-        fcn[i].test_and_generate_DPMs()
+        fcn[i].test_and_generate_DPMs(number[i])
 
 if __name__ == "__main__":
     config = read_json('./config.json')

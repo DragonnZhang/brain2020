@@ -269,9 +269,9 @@ class FCN_Wrapper(CNN_Wrapper):
         self.valid_dataloader = DataLoader(valid_data, batch_size=1, shuffle=False)
         self.test_dataloader = DataLoader(test_data, batch_size=1, shuffle=False)
 
-    def test_and_generate_DPMs(self):
+    def test_and_generate_DPMs(self, number):
         print('testing and generating DPMs ... ')
-        self.model.load_state_dict(torch.load('{}{}_{}.pth'.format(self.checkpoint_dir, self.model_name, self.optimal_epoch)))
+        self.model.load_state_dict(torch.load('{}{}_{}.pth'.format(self.checkpoint_dir, self.model_name, number)))
         self.fcn = self.model.dense_to_conv()
         self.fcn.train(False)
         with torch.no_grad():
