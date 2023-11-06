@@ -297,7 +297,7 @@ class FCN_Wrapper(CNN_Wrapper):
                 print(stage + ' confusion matrix ', matrix, ' accuracy ', self.eval_metric(matrix))
         print('DPM generation is done')
 
-    def load_mode(self, number):
+    def load_model(self, number):
         self.model.load_state_dict(torch.load('{}{}_{}.pth'.format(self.checkpoint_dir, self.model_name, number)))
         self.fcn = self.model.dense_to_conv()
         self.fcn.train(False)

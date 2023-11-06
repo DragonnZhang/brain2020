@@ -89,7 +89,7 @@ def getFcn(config):
 def six_model_test(config):
     fcn_setting = config['fcn']
     fcn = getFcn(config)  
-    mlp = getMlp(config)
+    mlp = getMlp(config['mlp_A'])
     with torch.no_grad():
         for stage in ['train', 'valid', 'test']:
             Data_dir = fcn_setting['Data_dir']
