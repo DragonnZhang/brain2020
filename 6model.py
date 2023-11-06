@@ -36,8 +36,10 @@ def six_model_test(config):
             for idx, (inputs, labels, _) in enumerate(dataloader):
                 inputs, labels = inputs, labels
                 preds = []
+                result = []
                 for model in mlp:
-                    result = model.predict(inputs)
+                    result.append(model.predict(inputs))
+                
 
 
 if __name__ == "__main__":

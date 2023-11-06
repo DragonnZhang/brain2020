@@ -306,6 +306,8 @@ class MLP_Wrapper_A(CNN_Wrapper):
         self.roi_count = roi_count
         self.roi_threshold = roi_threshold
         self.eval_metric = get_accu if metric == 'accuracy' else get_MCC
+        self.type1 = type1
+        self.type2 = type2
         self.checkpoint_dir = './checkpoint_dir_{}_{}/{}_exp{}/'.format(type1, type2, self.model_name, exp_idx)
         if not os.path.exists(self.checkpoint_dir):
             os.mkdir(self.checkpoint_dir)
@@ -396,7 +398,9 @@ class MLP_Wrapper_A(CNN_Wrapper):
     
     def predict(self, inputs):
         preds = self.model(inputs)
-        print(preds)
+        res = [self.type1 if x[0] > x[1] else self.type2 for x in preds]
+        return res
+            
         
 
 
