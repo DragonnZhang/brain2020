@@ -393,6 +393,11 @@ class MLP_Wrapper_A(CNN_Wrapper):
     def load_model(self, number):
         self.model.load_state_dict(torch.load('{}{}_{}.pth'.format(self.checkpoint_dir, self.model_name, number)))
         self.model.train(False)
+    
+    def predict(self, inputs):
+        preds = self.model(inputs)
+        print(preds)
+        
 
 
 class MLP_Wrapper_B(MLP_Wrapper_A):
