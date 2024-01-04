@@ -1,0 +1,12 @@
+##################################################
+{'imbalan_ratio': 1.0, 'fil_num': 100, 'drop_rate': 0.5, 'batch_size': 8, 'balanced': 0, 'roi_threshold': 0.6, 'roi_count': 200, 'choice': 'count', 'learning_rate': 0.01, 'train_epochs': 300}
+train confusion matrix  [[76, 8], [2, 98]]  accuracy  0.9456521739130435
+valid confusion matrix  [[10, 1], [2, 10]]  accuracy  0.8695652173913043
+test confusion matrix  [[14, 6], [2, 20]]  accuracy  0.8095238095238095
+train confusion matrix  [[75, 9], [0, 100]]  accuracy  0.9510869565217391
+valid confusion matrix  [[8, 3], [1, 11]]  accuracy  0.8260869565217391
+test confusion matrix  [[12, 8], [1, 21]]  accuracy  0.7857142857142857
+train confusion matrix  [[75, 9], [0, 100]]  accuracy  0.9510869565217391
+valid confusion matrix  [[8, 3], [1, 11]]  accuracy  0.8260869565217391
+test confusion matrix  [[12, 8], [3, 19]]  accuracy  0.7380952380952381
+ADNI test accuracy  A 0.7778+/-0.0297
